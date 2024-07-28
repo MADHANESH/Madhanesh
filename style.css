@@ -460,48 +460,6 @@ section.start-animation .column h2{
     animation-delay: 1.2s;
 }
 
-.box{
-    border-left: .2rem solid #e7e7e7;
-}
-.education-content {
-    padding-left: 1.9rem;
-}
-.education-content .content{
-    padding: 1.5rem;
-    border: .2rem solid #e7e7e7;
-    background: rgba(129, 6, 216, 0.684);
-    border-radius: .5rem;
-    margin-bottom: 2rem;
-    position: relative;
-}
-.content::before{
-    content: "";
-    position: absolute;
-    left: -2.8rem;
-    top: -1.5rem;
-    height: 1.4rem;
-    width: 1.4rem;
-    border-radius: 50%;
-    background: #e7e7e7;
-}
-.content .year{
-    font-size: 1.5rem;
-    color: #e7e7e7;
-}
-.content .year i{
-    color: #e7e7e7;
-    font-size: 1.5rem;
-    margin-left: .5rem;
-}
-.content h3{
-    font-size: 1.7rem;
-    letter-spacing: .05rem;
-    margin: .5rem 0;
-}
-.content p{
-    font-size: 1.5rem;
-}
-
 .skill-title{
     font-size: 2.4rem;
     font-weight: 600;
@@ -609,17 +567,7 @@ section.start-animation .skill-box2{
     padding: 20px;
 
 }
-.experience-content {
-    padding-left: 1.9rem;
-}
-.experience-content .content{
-    padding: 1.5rem;
-    border: .2rem solid #e7e7e7;
-    background: rgba(129, 6, 216, 0.684);
-    border-radius: .5rem;
-    margin-bottom: 2rem;
-    position: relative;
-}
+
 .content::before{
     content: "";
     position: absolute;
@@ -1012,50 +960,30 @@ footer i {
     border-radius: 5px;
 }
 
-..skill-box {
-    display: inline-block;
-    width: 200px;
-    height: 200px;
-    border: 1px solid #ddd;
+.skills {
+    background-color: #081b29;
     padding: 20px;
-    margin: 10px;
-    border-radius: 10px;
+}
+.title {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+.subtitle {
+    color: #f40d05;
+    margin-top: 20px;
+    font-size: 28px;
     text-align: center;
-    vertical-align: top;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s;
+    width: 100%;
 }
-
-.skill-box:hover {
-    transform: scale(1.05);
-}
-
 .skill-content {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
-
-.topic {
-    display: block;
-    font-size: 1.2em;
-    margin-bottom: 10px;
-}
-
-.percentage {
-    font-size: 1.5em;
-    margin-bottom: 10px;
-}
-
-.bar-side {
-    width: 100%;
-    background-color: #f1f1f1;
-    border-radius: 5px;
-}
-
 .skill-box {
+    position: relative;
     display: inline-block;
-    width: 45%;
+    width: 200px;
     height: 250px;
     border: 1px solid #ddd;
     padding: 20px;
@@ -1064,41 +992,46 @@ footer i {
     text-align: center;
     vertical-align: top;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(135deg, #0b3d91, #00abf0); /* Gradient background */
     transition: transform 0.2s;
+    overflow: hidden; /* Ensure pin stays within box */
 }
-
 .skill-box:hover {
-    transform: scale(1.05);
+    animation: swing 2s infinite;
 }
-
-.skill-content {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+.skill-box::before {
+    content: "";
+    position: absolute;
+    top: -0px; /* Adjust based on pin image size */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px; /* Adjust based on pin image size */
+    height: 30px; /* Adjust based on pin image size */
+    background: url('pin.png') no-repeat center center; /* Replace 'pin.png' with your pin image path */
+    background-size: contain;
+    z-index: 1;
+    animation: swing s infinite;
 }
 
 .topic {
     display: block;
     font-size: 1.2em;
+    margin-top: 40px; /* Adjust to create space for the pin */
     margin-bottom: 10px;
 }
-
 .percentage {
     font-size: 1.5em;
     margin-bottom: 10px;
 }
-
 .bar-side {
     width: 100%;
     background-color: #f1f1f1;
     border-radius: 5px;
 }
-
 .bar {
     height: 10px;
     border-radius: 5px;
 }
-
 .bar-1 { width: 80%; background-color: #4caf50; }
 .bar-2 { width: 70%; background-color: #2196F3; }
 .bar-3 { width: 95%; background-color: #ff9800; }
@@ -1109,18 +1042,15 @@ footer i {
 .barc-2 { width: 90%; background-color: #8bc34a; }
 .barc-3 { width: 90%; background-color: #ffeb3b; }
 .barc-4 { width: 75%; background-color: #ff5722; }
-
-.subtitle {
-    color: #f40d05;
-    margin-top: 20px;
-    font-size: 5em;
-    text-align: center;
-    width: 100%;
-}
-
-/* Responsive Design */
 @media (max-width: 600px) {
     .skill-box {
         width: 90%;
     }
+}
+@keyframes swing {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(5deg); }
+    50% { transform: rotate(0deg); }
+    75% { transform: rotate(-5deg); }
+    100% { transform: rotate(0deg); }
 }
